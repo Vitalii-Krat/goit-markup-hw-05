@@ -19,7 +19,7 @@ html {
 
   --card-set-gap: 30px;
   --duration-effect: 250ms;
-  --timing-function: cubic-bezier(0.4, 0, 0.2, 1) .;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -127,19 +127,12 @@ img {
   background-color: var(--accent-text-color);
 }
 
-.site-nav-link-port::after {
-  content: '';
-  display: block;
-  width: 78px;
-  height: 4px;
-  background-color: var(--accent-text-color);
-}
-
 .site-nav-link {
   display: inline-block;
   padding-bottom: 32px;
   padding-top: 32px;
   color: var(--title-text-color);
+  transition: color var(--duration-effect) var(--timing-function);
 }
 
 .site-contacts {
@@ -149,6 +142,7 @@ img {
 .link-icon {
   fill: currentColor;
   margin-right: 10px;
+  transition: color var(--duration-effect) var(--timing-function);
 }
 
 .site-contacts .link-icon:focus,
@@ -176,6 +170,7 @@ img {
   font-size: 14px;
   line-height: 0.88;
   letter-spacing: 0.02em;
+  transition: color var(--duration-effect) var(--timing-function);
 }
 
 .section {
@@ -224,6 +219,7 @@ img {
   margin-left: auto;
   margin-bottom: 200px;
   cursor: pointer;
+  transition: color var(--duration-effect) var(--timing-function);
 }
 
 .modal-btn:hover,
@@ -316,10 +312,6 @@ img {
 
 .specialization-text {
   position: absolute;
-  /* top: 50%;
-  left: 50%;
-  tran
-  sform: translate(-50%, -50%); */
   width: 370px;
   height: 70px;
   font-weight: 700;
@@ -414,6 +406,7 @@ img {
 .social-icon {
   width: 20px;
   height: 20px;
+  transition: color var(--duration-effect) var(--timing-function);
 
   fill: var(--primary-text-color);
 }
@@ -441,6 +434,7 @@ img {
   height: 90px;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+  transition: color var(--duration-effect) var(--timing-function);
 }
 .client-link:hover,
 .client-link:focus {
@@ -486,12 +480,14 @@ img {
   color: var(--white-text-color);
   font-size: 14px;
   line-height: 1.71;
+  transition: color var(--duration-effect) var(--timing-function);
 }
 
 .site-contacts-link-adress {
   font-size: 14px;
   line-height: 1.71;
   color: rgba(255, 255, 255, 0.6);
+  transition: color var(--duration-effect) var(--timing-function);
 }
 
 .contacts-item.footer {
@@ -519,6 +515,7 @@ img {
 }
 
 .footer-link {
+  transition: var(--duration-effect) var(--timing-function);
   background: rgba(255, 255, 255, 0.1);
 }
 
@@ -527,6 +524,14 @@ img {
 }
 
 /*=====PORTFOLIO=======*/
+
+.portfolio-line::after {
+  content: '';
+  display: block;
+  width: 78px;
+  height: 4px;
+  background-color: var(--accent-text-color);
+}
 
 .btn {
   display: flex;
@@ -541,6 +546,8 @@ img {
   text-align: center;
   cursor: pointer;
   border-radius: 4px;
+  transition: color var(--duration-effect) var(--timing-function),
+    box-shadow var(--duration-effect) var(--timing-function);
 }
 
 .btn:hover,
@@ -569,6 +576,38 @@ img {
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+.wrapper-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: 63px 24px;
+  width: 100%;
+  height: 100%;
+
+  transform: translateY(100%);
+  transition: transform var(--duration-effect) var(--timing-function);
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+
+  letter-spacing: 0.03em;
+
+  color: var(--white-text-color);
+  background-color: rgba(33, 150, 243, 0.9);
+}
+
+.wrapper-overlay:hover .overlay-text,
+.wrapper-overlay:focus .overlay-text {
+  transform: translateY(-100%);
+  overflow: auto;
+}
+
 .card-set {
   display: flex;
   flex-wrap: wrap;
@@ -591,6 +630,7 @@ img {
 
 .card-link {
   display: inline-block;
+  transition: box-shadow var(--duration-effect) var(--timing-function);
 }
 
 .card-content {
@@ -610,4 +650,45 @@ img {
   font-size: 16px;
   line-height: 1.88;
   color: var(--primary-text-color);
+}
+
+/*========MODAL-WINDOW======*/
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 500ms linear;
+}
+
+.modal {
+  width: 528px;
+  height: 581px;
+  background-color: var(--white-text-color);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.button-close {
+  position: absolute;
+  padding: 0;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: var(--white-text-color);
+  cursor: pointer;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
