@@ -661,7 +661,10 @@ img {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.2);
-  transition: opacity 500ms linear;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity var(--duration-effect) var(--timing-function);
 }
 
 .modal {
