@@ -144,11 +144,6 @@ img {
   margin-right: 10px;
 }
 
-.site-contacts .link-icon:focus,
-.site-contacts .link-icon:hover {
-  color: var(--accent-text-color);
-}
-
 .contacts-item {
   padding-bottom: 32px;
   padding-top: 32px;
@@ -406,6 +401,7 @@ img {
   border-radius: 50%;
   align-items: center;
   justify-content: center;
+  transition: background-color var(--duration-effect) var(--timing-function);
 }
 
 .social-link:focus,
@@ -421,8 +417,7 @@ img {
 .social-icon {
   width: 20px;
   height: 20px;
-  transition: color var(--duration-effect) var(--timing-function);
-
+  transition: fill var(--duration-effect) var(--timing-function);
   fill: var(--primary-text-color);
 }
 
@@ -449,12 +444,16 @@ img {
   height: 90px;
   border: 1px solid #afb1b8;
   border-radius: 4px;
-  transition: color var(--duration-effect) var(--timing-function);
+  transition: background-color var(--duration-effect) var(--timing-function);
 }
 .client-link:hover,
 .client-link:focus {
   fill: var(--accent-text-color);
   border: 1px solid var(--accent-text-color);
+}
+
+.client-icon {
+  transition: fill var(--duration-effect) var(--timing-function);
 }
 
 /*-------=====-FOOTER-=====------*/
@@ -562,7 +561,8 @@ img {
   cursor: pointer;
   border-radius: 4px;
   transition: color var(--duration-effect) var(--timing-function),
-    box-shadow var(--duration-effect) var(--timing-function);
+    box-shadow var(--duration-effect) var(--timing-function),
+    background-color var(--duration-effect) var(--timing-function);
 }
 
 .btn:hover,
@@ -676,10 +676,8 @@ img {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.2);
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transition: opacity var(--duration-effect) var(--timing-function);
+  transition: opacity var(--duration-effect) var(--timing-function),
+    visibility var(--duration-effect) var(--timing-function);
 }
 
 .modal {
